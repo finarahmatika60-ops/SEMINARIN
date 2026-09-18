@@ -1,0 +1,1821 @@
+css/style.css
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --cream: #FFF9F5;
+  --ivory: #FFFDFB;
+  --soft-pink: #FFE4E9;
+  --dusty-pink: #F8B4C4;
+  --pink-accent: #E89BB0;
+  --lavender: #E8E0F5;
+  --lavender-deep: #B8A8DC;
+  --baby-blue: #E0EEF9;
+  --blue-deep: #8FB8DE;
+  --dark: #2D2A3E;
+  --gray: #6B6880;
+  --light-gray: #F5F3F7;
+  --white: #FFFFFF;
+  --green: #4CAF87;
+  --shadow-sm: 0 2px 8px rgba(45,42,62,.06);
+  --shadow-md: 0 8px 24px rgba(45,42,62,.08);
+  --shadow-lg: 0 16px 48px rgba(45,42,62,.12);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--dark);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select,textarea{font-family:inherit}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAVBAR */
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,253,251,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,224,245,.4);transition:var(--transition)}
+.navbar.scrolled{background:rgba(255,253,251,.97);box-shadow:var(--shadow-sm)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:1.35rem;font-weight:800;color:var(--dark);display:flex;align-items:center;gap:8px;letter-spacing:-.5px;transition:var(--transition)}
+.logo:hover{transform:scale(1.03)}
+.logo span{color:var(--pink-accent)}
+.nav-menu{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-menu a{padding:8px 13px;font-size:.87rem;font-weight:500;color:var(--gray);border-radius:100px;transition:var(--transition);white-space:nowrap}
+.nav-menu a:hover{color:var(--dark);background:var(--soft-pink)}
+.nav-menu a.active{color:var(--dark);background:var(--soft-pink);font-weight:600}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.btn-nav{padding:10px 20px;background:var(--dark);color:var(--white);border-radius:100px;font-size:.85rem;font-weight:600;transition:var(--transition);white-space:nowrap}
+.btn-nav:hover{background:var(--pink-accent);transform:translateY(-2px);box-shadow:0 8px 20px rgba(232,155,176,.4)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:10px;transition:var(--transition)}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--dark);border-radius:10px;transition:var(--transition)}
+.hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:100px;font-weight:600;font-size:.95rem;transition:var(--transition);cursor:pointer;border:none}
+.btn-primary{background:var(--dark);color:var(--white)}
+.btn-primary:hover{background:var(--pink-accent);transform:translateY(-3px);box-shadow:0 12px 28px rgba(232,155,176,.45)}
+.btn-secondary{background:var(--white);color:var(--dark);border:1.5px solid var(--lavender)}
+.btn-secondary:hover{border-color:var(--lavender-deep);background:var(--lavender);transform:translateY(-3px)}
+.btn-pink{background:var(--dusty-pink);color:var(--white)}
+.btn-pink:hover{background:var(--pink-accent);transform:translateY(-3px);box-shadow:0 12px 28px rgba(232,155,176,.45)}
+.btn-block{width:100%}
+
+/* HERO */
+.hero{padding:60px 0 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5}
+.blob-1{width:400px;height:400px;background:var(--soft-pink);top:-100px;right:-50px}
+.blob-2{width:350px;height:350px;background:var(--lavender);bottom:-100px;left:-80px}
+.blob-3{width:300px;height:300px;background:var(--baby-blue);top:40%;left:40%;opacity:.35}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:var(--white);border:1.5px solid var(--soft-pink);border-radius:100px;font-size:.78rem;font-weight:700;color:var(--dark);letter-spacing:.5px;margin-bottom:24px;box-shadow:var(--shadow-sm)}
+.hero h1{font-size:3.2rem;font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:20px;color:var(--dark)}
+.hero h1 .highlight{background:linear-gradient(120deg,var(--dusty-pink),var(--lavender-deep));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p.sub{font-size:1.05rem;color:var(--gray);margin-bottom:32px;max-width:520px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.stat-item h3{font-size:1.6rem;font-weight:800;color:var(--dark)}
+.stat-item p{font-size:.85rem;color:var(--gray);font-weight:500}
+
+/* HERO ILLUSTRATION */
+.hero-illustration{position:relative;height:480px;display:flex;align-items:center;justify-content:center}
+.hero-card-main{width:320px;height:380px;background:linear-gradient(145deg,var(--white),var(--soft-pink));border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;position:relative;animation:floatMain 5s ease-in-out infinite}
+.hero-card-main .emoji-big{font-size:5rem;margin-bottom:16px}
+.hero-card-main h4{font-size:1.1rem;font-weight:700;text-align:center;margin-bottom:8px}
+.hero-card-main p{font-size:.85rem;color:var(--gray);text-align:center}
+@keyframes floatMain{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.float-item{position:absolute;background:var(--white);border-radius:var(--radius-md);padding:12px 16px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--dark);animation:floatSoft 4s ease-in-out infinite}
+.float-item .fi-icon{font-size:1.2rem}
+.fi-1{top:20px;left:0}
+.fi-2{top:60px;right:0;animation-delay:.6s}
+.fi-3{bottom:60px;left:-10px;animation-delay:1.2s}
+.fi-4{bottom:20px;right:10px;animation-delay:1.8s}
+.fi-5{top:45%;left:-30px;animation-delay:.9s}
+.fi-6{top:40%;right:-25px;animation-delay:1.5s}
+@keyframes floatSoft{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(2deg)}}
+
+/* SECTIONS */
+.section{padding:80px 0}
+.section-header{text-align:center;margin-bottom:50px}
+.section-header h2{font-size:2.2rem;font-weight:800;letter-spacing:-.8px;margin-bottom:12px}
+.section-header p{color:var(--gray);font-size:1rem;max-width:560px;margin:0 auto}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.feature-card{background:var(--white);border-radius:var(--radius-md);padding:32px 24px;transition:var(--transition);border:1.5px solid transparent;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--soft-pink),var(--lavender));transform:scaleX(0);transform-origin:left;transition:var(--transition)}
+.feature-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--soft-pink)}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-icon{width:56px;height:56px;border-radius:16px;background:var(--soft-pink);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;transition:var(--transition)}
+.feature-card:nth-child(2) .feature-icon{background:var(--lavender)}
+.feature-card:nth-child(3) .feature-icon{background:var(--baby-blue)}
+.feature-card:nth-child(4) .feature-icon{background:#FFF0DC}
+.feature-card:hover .feature-icon{transform:scale(1.1) rotate(-6deg)}
+.feature-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.feature-card p{font-size:.9rem;color:var(--gray)}
+
+/* SEMINAR CARD */
+.seminar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px}
+.seminar-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;transition:var(--transition);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;border:1.5px solid transparent}
+.seminar-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--soft-pink)}
+.card-poster{position:relative;height:170px;overflow:hidden;background:linear-gradient(135deg,var(--soft-pink),var(--lavender));display:flex;align-items:center;justify-content:center}
+.card-poster .poster-emoji{font-size:3.5rem;transition:var(--transition)}
+.seminar-card:hover .poster-emoji{transform:scale(1.15)}
+.card-category{position:absolute;top:12px;left:12px;padding:5px 12px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:100px;font-size:.72rem;font-weight:700;color:var(--dark)}
+.fav-btn{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;font-size:1.05rem;transition:var(--transition);z-index:2}
+.fav-btn:hover{transform:scale(1.12)}
+.fav-btn.active{background:var(--dusty-pink);animation:popFav .4s ease}
+@keyframes popFav{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+.card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.card-body h3{font-size:1rem;font-weight:700;margin-bottom:12px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:44px}
+.card-meta{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;font-size:.82rem;color:var(--gray)}
+.card-meta span{display:flex;align-items:center;gap:6px}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tag{padding:3px 10px;background:var(--light-gray);border-radius:100px;font-size:.7rem;font-weight:600;color:var(--gray)}
+.card-footer{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:14px;border-top:1px solid var(--light-gray)}
+.card-price{font-size:1.05rem;font-weight:800;color:var(--dark)}
+.card-price.free{color:var(--green)}
+.cert-badge{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:600;color:var(--blue-deep);background:var(--baby-blue);padding:3px 8px;border-radius:100px}
+.btn-detail{padding:9px 16px;background:var(--dark);color:var(--white);border-radius:100px;font-size:.82rem;font-weight:600;transition:var(--transition);white-space:nowrap}
+.btn-detail:hover{background:var(--pink-accent);transform:translateY(-2px)}
+
+/* SEARCH & FILTER */
+.page-hero{padding:50px 0 30px;text-align:center}
+.page-hero h1{font-size:2.4rem;font-weight:800;letter-spacing:-1px;margin-bottom:10px}
+.page-hero p{color:var(--gray);font-size:1rem}
+.search-wrap{max-width:720px;margin:30px auto 0;position:relative}
+.search-wrap input{width:100%;padding:18px 24px 18px 56px;border-radius:100px;border:1.5px solid var(--lavender);background:var(--white);font-size:.95rem;transition:var(--transition);box-shadow:var(--shadow-sm)}
+.search-wrap input:focus{outline:none;border-color:var(--pink-accent);box-shadow:0 0 0 4px rgba(232,155,176,.15)}
+.search-wrap .search-icon{position:absolute;left:22px;top:50%;transform:translateY(-50%);font-size:1.1rem;opacity:.6}
+.filter-section{padding:30px 0}
+.filter-bar{background:var(--white);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow-sm);display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-bottom:24px}
+.filter-group{display:flex;flex-direction:column;gap:6px;flex:1;min-width:140px}
+.filter-group label{font-size:.75rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px}
+.filter-group select{padding:11px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--lavender);background:var(--ivory);font-size:.88rem;color:var(--dark);transition:var(--transition);cursor:pointer}
+.filter-group select:focus{outline:none;border-color:var(--pink-accent);box-shadow:0 0 0 3px rgba(232,155,176,.15)}
+.btn-reset{padding:11px 22px;background:var(--soft-pink);color:var(--dark);border-radius:var(--radius-sm);font-size:.88rem;font-weight:600;transition:var(--transition);white-space:nowrap}
+.btn-reset:hover{background:var(--dusty-pink);color:var(--white)}
+.result-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.result-info p{font-size:.9rem;color:var(--gray)}
+.result-info strong{color:var(--dark)}
+.empty-state{text-align:center;padding:80px 20px}
+.empty-state .emoji-big{font-size:4rem;margin-bottom:16px}
+.empty-state h3{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.empty-state p{color:var(--gray);margin-bottom:24px}
+
+/* CATEGORY */
+.category-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.category-card{background:var(--white);border-radius:var(--radius-md);padding:32px 24px;text-align:center;transition:var(--transition);cursor:pointer;border:1.5px solid transparent}
+.category-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--soft-pink)}
+.category-card .cat-icon{width:70px;height:70px;border-radius:20px;background:var(--soft-pink);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px;transition:var(--transition)}
+.category-card:nth-child(2) .cat-icon{background:var(--lavender)}
+.category-card:nth-child(3) .cat-icon{background:var(--baby-blue)}
+.category-card:nth-child(4) .cat-icon{background:#FFE9E9}
+.category-card:nth-child(5) .cat-icon{background:#FFF0DC}
+.category-card:nth-child(6) .cat-icon{background:#E5F5EA}
+.category-card:hover .cat-icon{transform:scale(1.1) rotate(-6deg)}
+.category-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.category-card p{font-size:.82rem;color:var(--gray)}
+.chips-wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{padding:10px 20px;background:var(--white);border:1.5px solid var(--lavender);border-radius:100px;font-size:.88rem;font-weight:600;color:var(--dark);transition:var(--transition);cursor:pointer}
+.chip:hover{background:var(--soft-pink);border-color:var(--soft-pink);transform:translateY(-3px)}
+
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:start}
+.form-illustration{background:linear-gradient(145deg,var(--soft-pink),var(--lavender));border-radius:var(--radius-lg);padding:40px;min-height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:sticky;top:100px}
+.form-illustration .emoji-big{font-size:5rem;margin-bottom:20px;animation:floatMain 4s ease-in-out infinite}
+.form-illustration h3{font-size:1.3rem;font-weight:700;margin-bottom:10px}
+.form-illustration p{color:var(--gray);font-size:.92rem}
+.form-card{background:var(--white);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-md)}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:7px;color:var(--dark)}
+.form-group label .req{color:var(--pink-accent)}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 16px;border-radius:var(--radius-sm);border:1.5px solid var(--lavender);background:var(--ivory);font-size:.9rem;color:var(--dark);transition:var(--transition)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--pink-accent);background:var(--white);box-shadow:0 0 0 4px rgba(232,155,176,.12)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.error-msg{font-size:.78rem;color:#E05A7A;margin-top:5px;display:none}
+.form-group.error input,.form-group.error select,.form-group.error textarea{border-color:#E05A7A;background:#FFF5F7}
+.form-group.error .error-msg{display:block}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.pricing-card{background:var(--white);border-radius:var(--radius-lg);padding:36px 30px;transition:var(--transition);border:2px solid transparent;position:relative;display:flex;flex-direction:column}
+.pricing-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.pricing-card.featured{border-color:var(--dusty-pink);background:linear-gradient(180deg,var(--white),var(--soft-pink));transform:scale(1.03)}
+.pricing-card.featured:hover{transform:scale(1.03) translateY(-8px)}
+.rec-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:6px 18px;background:var(--dark);color:var(--white);border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.5px;white-space:nowrap}
+.pricing-card h3{font-size:.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:14px}
+.pricing-price{font-size:2.6rem;font-weight:800;color:var(--dark);margin-bottom:4px;letter-spacing:-1px}
+.pricing-price span{font-size:1rem;font-weight:600;color:var(--gray)}
+.pricing-desc{font-size:.88rem;color:var(--gray);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--light-gray)}
+.pricing-features{list-style:none;margin-bottom:28px;flex:1}
+.pricing-features li{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;color:var(--gray);margin-bottom:12px}
+.pricing-features li .check{color:var(--pink-accent);font-weight:700;flex-shrink:0}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-visual{background:linear-gradient(145deg,var(--lavender),var(--baby-blue));border-radius:var(--radius-lg);padding:50px 40px;text-align:center;position:relative;overflow:hidden}
+.about-visual .emoji-big{font-size:6rem;margin-bottom:20px;animation:floatMain 5s ease-in-out infinite}
+.about-visual h3{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.about-visual p{color:var(--gray);font-size:.9rem}
+.visi-box{background:var(--white);border-left:4px solid var(--dusty-pink);padding:24px 28px;border-radius:var(--radius-md);margin:30px 0;box-shadow:var(--shadow-sm)}
+.visi-box h4{font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--pink-accent);margin-bottom:8px}
+.visi-box p{font-size:1.05rem;font-style:italic;color:var(--dark);line-height:1.5}
+.highlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+.highlight-card{background:var(--white);border-radius:var(--radius-md);padding:28px 22px;text-align:center;transition:var(--transition);box-shadow:var(--shadow-sm)}
+.highlight-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.highlight-card .hl-icon{font-size:2.2rem;margin-bottom:12px}
+.highlight-card h4{font-size:1rem;font-weight:700;margin-bottom:6px}
+.highlight-card p{font-size:.85rem;color:var(--gray)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.contact-card{background:var(--white);border-radius:var(--radius-md);padding:36px 28px;text-align:center;transition:var(--transition);border:1.5px solid transparent;display:block}
+.contact-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--soft-pink)}
+.contact-card .cc-icon{width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 18px;transition:var(--transition)}
+.contact-card:nth-child(1) .cc-icon{background:#E5F5EA}
+.contact-card:nth-child(2) .cc-icon{background:var(--soft-pink)}
+.contact-card:nth-child(3) .cc-icon{background:var(--lavender)}
+.contact-card:hover .cc-icon{transform:scale(1.1) rotate(-6deg)}
+.contact-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.contact-card p{font-size:.9rem;color:var(--gray);word-break:break-word}
+.contact-card .cc-action{margin-top:14px;font-size:.82rem;font-weight:700;color:var(--pink-accent)}
+
+/* DETAIL */
+.detail-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;padding:40px 0 80px}
+.detail-poster{background:linear-gradient(145deg,var(--soft-pink),var(--lavender));border-radius:var(--radius-lg);height:340px;display:flex;align-items:center;justify-content:center;font-size:6rem;box-shadow:var(--shadow-md);position:sticky;top:100px}
+.detail-body h1{font-size:2rem;font-weight:800;letter-spacing:-.8px;margin-bottom:14px;line-height:1.2}
+.detail-cat{display:inline-block;padding:6px 14px;background:var(--soft-pink);border-radius:100px;font-size:.78rem;font-weight:700;margin-bottom:16px}
+.detail-meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.detail-meta-item{background:var(--white);padding:14px 18px;border-radius:var(--radius-sm);box-shadow:var(--shadow-sm)}
+.detail-meta-item .label{font-size:.72rem;color:var(--gray);text-transform:uppercase;font-weight:700;letter-spacing:.5px;margin-bottom:4px}
+.detail-meta-item .value{font-size:.95rem;font-weight:600}
+.detail-section{margin:24px 0}
+.detail-section h3{font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.detail-section p{color:var(--gray);font-size:.95rem;line-height:1.7}
+.benefit-list{list-style:none;display:grid;gap:10px}
+.benefit-list li{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;color:var(--gray)}
+.benefit-list li .check{color:var(--pink-accent);font-weight:700}
+.detail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.detail-price-box{background:linear-gradient(135deg,var(--soft-pink),var(--lavender));border-radius:var(--radius-md);padding:20px 24px;display:flex;justify-content:space-between;align-items:center;margin:24px 0}
+.detail-price-box .price{font-size:1.8rem;font-weight:800;color:var(--dark)}
+.detail-price-box .price-label{font-size:.8rem;color:var(--gray);font-weight:600}
+
+/* FOOTER */
+.footer{background:var(--dark);color:#C9C6D6;padding:60px 0 30px;margin-top:80px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand h3{font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.footer-brand h3 span{color:var(--pink-accent)}
+.footer-brand p{font-size:.9rem;color:#A8A4B8;margin-bottom:20px}
+.footer-col h4{font-size:.85rem;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.footer-col ul{list-style:none;display:grid;gap:10px}
+.footer-col a{font-size:.9rem;color:#A8A4B8;transition:var(--transition)}
+.footer-col a:hover{color:var(--pink-accent);padding-left:4px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;text-align:center;font-size:.85rem;color:#8A8699}
+
+/* TOAST */
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--dark);color:var(--white);padding:16px 26px;border-radius:100px;font-size:.9rem;font-weight:600;box-shadow:var(--shadow-lg);z-index:9999;transition:transform .4s cubic-bezier(.4,0,.2,1);max-width:90%;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.success{background:var(--green)}
+.toast.error{background:#E05A7A}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 8px 24px rgba(37,211,102,.4);z-index:999;transition:var(--transition);color:white}
+.wa-float:hover{transform:scale(1.1) rotate(-6deg);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero h1{font-size:2.6rem}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:1fr;max-width:500px;margin:0 auto}
+  .pricing-card.featured{transform:none}
+  .pricing-card.featured:hover{transform:translateY(-8px)}
+  .nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;padding:20px;gap:4px;box-shadow:var(--shadow-md);border-radius:0 0 var(--radius-md) var(--radius-md)}
+  .nav-menu.open{display:flex}
+  .nav-menu a{width:100%;padding:12px 16px}
+  .hamburger{display:flex}
+  .btn-nav{display:none}
+}
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero h1{font-size:2.1rem}
+  .hero-illustration{height:400px;transform:scale(.9)}
+  .features-grid{grid-template-columns:1fr}
+  .section{padding:60px 0}
+  .section-header h2{font-size:1.7rem}
+  .page-hero h1{font-size:1.8rem}
+  .form-grid{grid-template-columns:1fr;gap:30px}
+  .form-illustration{position:static;min-height:260px;padding:30px}
+  .about-grid{grid-template-columns:1fr;gap:30px}
+  .highlight-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .detail-wrap{grid-template-columns:1fr;gap:30px}
+  .detail-poster{position:static;height:240px;font-size:4rem}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .form-card{padding:24px}
+  .seminar-grid{grid-template-columns:1fr}
+  .filter-bar{padding:16px}
+  .filter-group{min-width:100%}
+  .btn{padding:12px 22px;font-size:.9rem}
+  .hero-stats{gap:20px}
+}
+@media(max-width:480px){
+  .container{padding:0 18px}
+  .nav-inner{padding:14px 18px}
+  .hero h1{font-size:1.75rem;letter-spacing:-1px}
+  .hero-illustration{transform:scale(.75);height:340px}
+  .float-item{font-size:.72rem;padding:8px 12px}
+  .detail-meta{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+}
+
+js/script.js
+// ============ SEMINAR DATA ============
+const SEMINARS = [
+  { id:1, judul:"Seminar Nasional Pendidikan di Era Digital", kategori:"Pendidikan", tanggal:"2026-02-15", waktu:"09:00 - 12:00 WIB", format:"Online", lokasi:"Zoom Meeting", harga:0, sertifikat:true, penyelenggara:"Universitas Nusantara", pembicara:"Dr. Anisa Rahmawati, M.Pd.", deskripsi:"Membahas transformasi pendidikan di era digital, pemanfaatan teknologi pembelajaran, dan tantangan guru masa kini.", emoji:"🎓", tags:["Digital","Pendidikan","Teknologi"], manfaat:["Memahami tren pendidikan digital","Mendapat e-sertifikat resmi","Networking dengan pendidik"] },
+  { id:2, judul:"Webinar Literasi Sains untuk Generasi Muda", kategori:"IPA & Sains", tanggal:"2026-02-18", waktu:"13:00 - 15:30 WIB", format:"Online", lokasi:"Google Meet", harga:10000, sertifikat:true, penyelenggara:"Sains Muda Indonesia", pembicara:"Prof. Dr. Budi Santoso", deskripsi:"Meningkatkan literasi sains generasi muda melalui pendekatan praktis dan menyenangkan.", emoji:"🔬", tags:["Sains","Literasi","Muda"], manfaat:["Menambah wawasan sains","E-sertifikat","Diskusi interaktif"] },
+  { id:3, judul:"Basic Research Skills for Students", kategori:"Pendidikan", tanggal:"2026-02-20", waktu:"08:00 - 11:00 WIB", format:"Offline", lokasi:"Aula FIP UNY", harga:25000, sertifikat:true, penyelenggara:"Himpunan Mahasiswa Pendidikan", pembicara:"Dr. Citra Dewi, M.Si.", deskripsi:"Pelatihan dasar penelitian untuk mahasiswa: menentukan topik, metode, dan menulis laporan.", emoji:"📚", tags:["Riset","Metodologi"], manfaat:["Skill riset dasar","Template penelitian","E-sertifikat"] },
+  { id:4, judul:"Public Speaking untuk Mahasiswa", kategori:"Pengembangan Diri", tanggal:"2026-02-22", waktu:"10:00 - 13:00 WIB", format:"Online", lokasi:"Zoom Meeting", harga:15000, sertifikat:true, penyelenggara:"SpeakUp Academy", pembicara:"Rina Kartika, S.Pd.", deskripsi:"Tingkatkan kemampuan public speaking, atasi demam panggung, dan kuasai teknik presentasi.", emoji:"🎤", tags:["Public Speaking","Komunikasi"], manfaat:["Percaya diri berbicara","Teknik presentasi","E-sertifikat"] },
+  { id:5, judul:"AI dan Masa Depan Pendidikan", kategori:"Teknologi", tanggal:"2026-02-25", waktu:"15:00 - 17:00 WIB", format:"Online", lokasi:"Zoom Meeting", harga:0, sertifikat:true, penyelenggara:"TechEdu Community", pembicara:"Ir. Doni Pratama, M.T.", deskripsi:"Eksplorasi peran AI dalam dunia pendidikan dan peluang karier di bidang teknologi pendidikan.", emoji:"🤖", tags:["AI","Teknologi","Edukasi"], manfaat:["Paham AI di pendidikan","Gratis","E-sertifikat"] },
+  { id:6, judul:"Seminar Kewirausahaan Mahasiswa", kategori:"Bisnis", tanggal:"2026-02-27", waktu:"09:00 - 12:00 WIB", format:"Offline", lokasi:"Gedung Kewirausahaan", harga:30000, sertifikat:true, penyelenggara:"Inkubator Bisnis Kampus", pembicara:"Andi Wijaya, S.E., M.M.", deskripsi:"Membangun jiwa wirausaha, ide bisnis, dan strategi memulai startup dari kampus.", emoji:"💼", tags:["Bisnis","Startup","Wirausaha"], manfaat:["Ide bisnis baru","Mentoring","E-sertifikat"] },
+  { id:7, judul:"Mental Health Awareness for Students", kategori:"Kesehatan", tanggal:"2026-03-01", waktu:"13:00 - 15:00 WIB", format:"Online", lokasi:"Zoom Meeting", harga:0, sertifikat:true, penyelenggara:"Psikologi Peduli", pembicara:"Dra. Eka Sari, M.Psi.", deskripsi:"Mengenali tanda stres, mengelola kecemasan, dan menjaga kesehatan mental di masa kuliah.", emoji:"🧠", tags:["Mental Health","Psikologi"], manfaat:["Paham kesehatan mental","Gratis","E-sertifikat"] },
+  { id:8, judul:"Workshop Pengembangan Media Pembelajaran", kategori:"Pendidikan", tanggal:"2026-03-03", waktu:"08:00 - 14:00 WIB", format:"Offline", lokasi:"Lab Multimedia", harga:50000, sertifikat:true, penyelenggara:"Pusat Inovasi Pendidikan", pembicara:"Fajar Nugroho, S.Pd., M.Pd.", deskripsi:"Praktik langsung membuat media pembelajaran interaktif berbasis digital.", emoji:"🎨", tags:["Media","Pembelajaran"], manfaat:["Praktik langsung","Software pembelajaran","E-sertifikat"] },
+  { id:9, judul:"Seminar Nasional Teknologi Pembelajaran", kategori:"Teknologi", tanggal:"2026-03-05", waktu:"08:00 - 15:00 WIB", format:"Online", lokasi:"Zoom Meeting", harga:25000, sertifikat:true, penyelenggara:"Asosiasi Teknologi Pendidikan", pembicara:"Prof. Dr. Gunawan, M.T.", deskripsi:"Konferensi nasional tentang teknologi pembelajaran terkini dan implementasinya.", emoji:"💻", tags:["Teknologi","Konferensi"], manfaat:["Update teknologi","Networking","E-sertifikat"] },
+  { id:10, judul:"Webinar Personal Branding untuk Mahasiswa", kategori:"Pengembangan Diri", tanggal:"2026-03-07", waktu:"14:00 - 16:00 WIB", format:"Online", lokasi:"Zoom Meeting", harga:10000, sertifikat:true, penyelenggara:"Career Center UGM", pembicara:"Hana Lestari, S.I.Kom.", deskripsi:"Membangun personal branding di media sosial untuk karier dan profesionalisme.", emoji:"✨", tags:["Branding","Karier"], manfaat:["Personal branding","LinkedIn profile","E-sertifikat"] },
+  { id:11, judul:"Workshop Menulis Karya Ilmiah", kategori:"Pendidikan", tanggal:"2026-03-10", waktu:"09:00 - 13:00 WIB", format:"Offline", lokasi:"Ruang Seminar FBS", harga:20000, sertifikat:true, penyelenggara:"Lembaga Penelitian Mahasiswa", pembicara:"Dr. Indah Permata, M.Hum.", deskripsi:"Teknik menulis karya ilmiah yang baik, mulai dari abstrak hingga daftar pustaka.", emoji:"✍️", tags:["Menulis","Ilmiah"], manfaat:["Skill menulis","Template karya","E-sertifikat"] },
+  { id:12, judul:"Seminar Pengembangan Karier Mahasiswa", kategori:"Bisnis", tanggal:"2026-03-12", waktu:"10:00 - 13:00 WIB", format:"Online", lokasi:"Google Meet", harga:0, sertifikat:true, penyelenggara:"Alumni Career Network", pembicara:"Bayu Setiawan, M.B.A.", deskripsi:"Persiapan karier setelah lulus: CV, interview, dan soft skill yang dibutuhkan industri.", emoji:"🚀", tags:["Karier","CV","Interview"], manfaat:["CV review","Simulasi interview","E-sertifikat"] }
+];
+
+// ============ FAVORITE SYSTEM ============
+const FAV_KEY = 'seminara_favorites';
+function getFavorites(){ try{ return JSON.parse(localStorage.getItem(FAV_KEY))||[] }catch(e){ return [] } }
+function saveFavorites(arr){ localStorage.setItem(FAV_KEY, JSON.stringify(arr)) }
+function isFavorite(id){ return getFavorites().includes(id) }
+function toggleFavorite(id){
+  let favs = getFavorites();
+  if(favs.includes(id)){ favs = favs.filter(f=>f!==id); saveFavorites(favs); return false; }
+  else { favs.push(id); saveFavorites(favs); return true; }
+}
+
+// ============ NAVBAR ============
+function initNavbar(){
+  const navbar = document.querySelector('.navbar');
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  if(navbar){
+    window.addEventListener('scroll',()=>{
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  }
+  if(hamburger && navMenu){
+    hamburger.addEventListener('click',()=>{
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+    navMenu.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click',()=>{
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+  }
+  // Set active link
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-menu a').forEach(a=>{
+    const href = a.getAttribute('href');
+    if(href === path || (path==='' && href==='index.html')) a.classList.add('active');
+  });
+}
+
+// ============ HELPERS ============
+function formatRupiah(n){
+  if(n===0) return 'GRATIS';
+  return 'Rp' + n.toLocaleString('id-ID');
+}
+function formatDate(str){
+  const d = new Date(str);
+  const bulan = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  return `${d.getDate()} ${bulan[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+// ============ RENDER CARD ============
+function createSeminarCard(s){
+  const fav = isFavorite(s.id);
+  return `
+  <div class="seminar-card reveal">
+    <div class="card-poster">
+      <span class="card-category">${s.kategori}</span>
+      <button class="fav-btn ${fav?'active':''}" data-id="${s.id}" aria-label="Favorit">${fav?'❤️':'🤍'}</button>
+      <span class="poster-emoji">${s.emoji}</span>
+    </div>
+    <div class="card-body">
+      <h3>${s.judul}</h3>
+      <div class="card-meta">
+        <span>📅 ${formatDate(s.tanggal)}</span>
+        <span>⏰ ${s.waktu}</span>
+        <span>📍 ${s.format} · ${s.lokasi}</span>
+      </div>
+      <div class="card-tags">${s.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}</div>
+      <div class="card-footer">
+        <div>
+          <div class="card-price ${s.harga===0?'free':''}">${formatRupiah(s.harga)}</div>
+          ${s.sertifikat?'<span class="cert-badge">📜 E-Sertifikat</span>':''}
+        </div>
+        <a href="detail.html?id=${s.id}" class="btn-detail">Lihat Detail</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+function bindFavoriteButtons(container){
+  container.querySelectorAll('.fav-btn').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      const id = parseInt(btn.dataset.id);
+      const nowFav = toggleFavorite(id);
+      btn.classList.toggle('active', nowFav);
+      btn.textContent = nowFav ? '❤️' : '🤍';
+      showToast(nowFav ? 'Ditambahkan ke favorit ❤️' : 'Dihapus dari favorit', 'success');
+    });
+  });
+}
+
+// ============ TOAST ============
+function showToast(msg, type=''){
+  let toast = document.querySelector('.toast');
+  if(!toast){
+    toast = document.createElement('div');
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.className = 'toast ' + type;
+  toast.textContent = msg;
+  requestAnimationFrame(()=>toast.classList.add('show'));
+  clearTimeout(toast._t);
+  toast._t = setTimeout(()=>toast.classList.remove('show'), 3200);
+}
+
+// ============ REVEAL ON SCROLL ============
+function initReveal(){
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  },{ threshold:.1 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+
+// ============ FLOATING WA ============
+function injectWA(){
+  if(document.querySelector('.wa-float')) return;
+  const a = document.createElement('a');
+  a.className = 'wa-float';
+  a.href = 'https://wa.me/6282337237718?text=' + encodeURIComponent('Halo Kak Seminara, saya ingin bertanya tentang layanan Seminara.');
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.setAttribute('aria-label','WhatsApp SEMINARA');
+  a.innerHTML = '💬';
+  document.body.appendChild(a);
+}
+
+// ============ INIT ============
+document.addEventListener('DOMContentLoaded', ()=>{
+  initNavbar();
+  injectWA();
+  initReveal();
+});
+index.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEMINARA — Cari Seminar Tanpa Ribet ✨</title>
+<meta name="description" content="Platform mahasiswa untuk menemukan seminar, webinar, dan workshop sesuai kebutuhanmu.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a>
+    </div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="badge">✨ TEMAN SEMINAR MAHASISWA</div>
+        <h1>Cari Seminar yang Cocok.<br><span class="highlight">Bukan Sekadar Seminar.</span></h1>
+        <p class="sub">Temukan seminar, webinar, dan workshop yang sesuai dengan kebutuhan, jurusan, budget, dan tujuanmu tanpa harus mencari satu per satu.</p>
+        <div class="hero-buttons">
+          <a href="seminar.html" class="btn btn-primary">🔎 Cari Seminar</a>
+          <a href="carikan.html" class="btn btn-secondary">💌 Carikan untuk Saya</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><h3>100+</h3><p>Seminar</p></div>
+          <div class="stat-item"><h3>8</h3><p>Kategori</p></div>
+          <div class="stat-item"><h3>100%</h3><p>Student Friendly</p></div>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <div class="hero-card-main">
+          <div class="emoji-big">🧑‍💻</div>
+          <h4>Seminar Pilihan Untukmu</h4>
+          <p>Dikurasi sesuai jurusan & kebutuhanmu</p>
+        </div>
+        <div class="float-item fi-1"><span class="fi-icon">📅</span>Kalender</div>
+        <div class="float-item fi-2"><span class="fi-icon">🎟️</span>Tiket</div>
+        <div class="float-item fi-3"><span class="fi-icon">📜</span>Sertifikat</div>
+        <div class="float-item fi-4"><span class="fi-icon">🔔</span>Notifikasi</div>
+        <div class="float-item fi-5"><span class="fi-icon">📚</span>Buku</div>
+        <div class="float-item fi-6"><span class="fi-icon">✨</span>Sparkle</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Kenapa Cari Seminar di SEMINARA?</h2>
+      <p>Kami bantu kamu menemukan kegiatan yang tepat, cepat, dan sesuai kebutuhan.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🔎</div>
+        <h3>Easy Search</h3>
+        <p>Cari seminar berdasarkan topik dan kebutuhan.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">⏰</div>
+        <h3>Save Time</h3>
+        <p>Tidak perlu mencari seminar dari banyak tempat.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📜</div>
+        <h3>Certificate Ready</h3>
+        <p>Temukan seminar yang menyediakan e-sertifikat.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">💰</div>
+        <h3>Budget Friendly</h3>
+        <p>Cari kegiatan sesuai budget mahasiswa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATION -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Seminar Pilihan Minggu Ini ✨</h2>
+      <p>Rekomendasi seminar terbaik yang cocok untuk mahasiswa.</p>
+    </div>
+    <div class="seminar-grid" id="rekomendasiGrid"></div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="seminar.html" class="btn btn-primary">Lihat Semua Seminar →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const grid = document.getElementById('rekomendasiGrid');
+  const picks = SEMINARS.slice(0,4);
+  grid.innerHTML = picks.map(createSeminarCard).join('');
+  bindFavoriteButtons(grid);
+  initReveal();
+});
+</script>
+</body>
+</html>
+seminar.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cari Seminar — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Cari Seminar yang Kamu Butuhkan 🔎</h1>
+    <p>Filter sesuai jurusan, topik, budget, waktu, dan format yang kamu mau.</p>
+    <div class="search-wrap">
+      <span class="search-icon">🔎</span>
+      <input type="text" id="searchInput" placeholder="Cari seminar, topik, atau skill...">
+    </div>
+  </div>
+</section>
+
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Kategori</label>
+        <select id="filterKategori">
+          <option value="">Semua Kategori</option>
+          <option>Pendidikan</option>
+          <option>IPA & Sains</option>
+          <option>Teknologi</option>
+          <option>Kesehatan</option>
+          <option>Bisnis</option>
+          <option>Organisasi</option>
+          <option>Kreativitas</option>
+          <option>Pengembangan Diri</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Harga</label>
+        <select id="filterHarga">
+          <option value="">Semua</option>
+          <option value="gratis">Gratis</option>
+          <option value="10000">≤ Rp10.000</option>
+          <option value="25000">≤ Rp25.000</option>
+          <option value="50000">≤ Rp50.000</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Format</label>
+        <select id="filterFormat">
+          <option value="">Semua Format</option>
+          <option value="Online">Online</option>
+          <option value="Offline">Offline</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sertifikat</label>
+        <select id="filterSertifikat">
+          <option value="">Semua</option>
+          <option value="ada">Ada</option>
+          <option value="tidak">Tidak Ada</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Urutkan</label>
+        <select id="sortBy">
+          <option value="relevan">Relevan</option>
+          <option value="terbaru">Terbaru</option>
+          <option value="termurah">Harga Termurah</option>
+          <option value="termahal">Harga Termahal</option>
+        </select>
+      </div>
+      <button class="btn-reset" id="resetBtn">Reset Filter</button>
+    </div>
+
+    <div class="result-info">
+      <p>Menampilkan <strong id="resultCount">0</strong> seminar</p>
+    </div>
+
+    <div class="seminar-grid" id="seminarGrid"></div>
+    <div class="empty-state" id="emptyState" style="display:none">
+      <div class="emoji-big">🔍</div>
+      <h3>Seminar tidak ditemukan</h3>
+      <p>Coba ubah kata kunci atau filter pencarianmu.</p>
+      <button class="btn btn-primary" onclick="document.getElementById('resetBtn').click()">Reset Filter</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const grid = document.getElementById('seminarGrid');
+  const countEl = document.getElementById('resultCount');
+  const emptyEl = document.getElementById('emptyState');
+  const searchInput = document.getElementById('searchInput');
+  const fKat = document.getElementById('filterKategori');
+  const fHarga = document.getElementById('filterHarga');
+  const fFormat = document.getElementById('filterFormat');
+  const fSert = document.getElementById('filterSertifikat');
+  const sortBy = document.getElementById('sortBy');
+  const resetBtn = document.getElementById('resetBtn');
+
+  // Prefill from URL
+  const params = new URLSearchParams(location.search);
+  if(params.get('category')) fKat.value = params.get('category');
+  if(params.get('q')) searchInput.value = params.get('q');
+
+  function applyFilters(){
+    let list = [...SEMINARS];
+    const q = searchInput.value.trim().toLowerCase();
+    if(q){
+      list = list.filter(s =>
+        s.judul.toLowerCase().includes(q) ||
+        s.kategori.toLowerCase().includes(q) ||
+        s.tags.some(t=>t.toLowerCase().includes(q)) ||
+        s.deskripsi.toLowerCase().includes(q)
+      );
+    }
+    if(fKat.value) list = list.filter(s=>s.kategori===fKat.value);
+    if(fHarga.value === 'gratis') list = list.filter(s=>s.harga===0);
+    else if(fHarga.value) list = list.filter(s=>s.harga<=parseInt(fHarga.value));
+    if(fFormat.value) list = list.filter(s=>s.format===fFormat.value);
+    if(fSert.value === 'ada') list = list.filter(s=>s.sertifikat);
+    else if(fSert.value === 'tidak') list = list.filter(s=>!s.sertifikat);
+
+    switch(sortBy.value){
+      case 'terbaru': list.sort((a,b)=>new Date(b.tanggal)-new Date(a.tanggal)); break;
+      case 'termurah': list.sort((a,b)=>a.harga-b.harga); break;
+      case 'termahal': list.sort((a,b)=>b.harga-a.harga); break;
+    }
+    return list;
+  }
+
+  function render(){
+    const list = applyFilters();
+    countEl.textContent = list.length;
+    if(list.length===0){
+      grid.innerHTML = '';
+      emptyEl.style.display = 'block';
+    } else {
+      emptyEl.style.display = 'none';
+      grid.innerHTML = list.map(createSeminarCard).join('');
+      bindFavoriteButtons(grid);
+      initReveal();
+    }
+  }
+
+  [searchInput, fKat, fHarga, fFormat, fSert, sortBy].forEach(el=>{
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
+  });
+
+  resetBtn.addEventListener('click',()=>{
+    searchInput.value=''; fKat.value=''; fHarga.value=''; fFormat.value=''; fSert.value=''; sortBy.value='relevan';
+    render();
+    showToast('Filter direset ✨');
+  });
+
+  render();
+});
+</script>
+</body>
+</html>
+kategori.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kategori Seminar — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Mau Cari Seminar di Bidang Apa? ✨</h1>
+    <p>Pilih kategori yang sesuai dengan minat dan jurusanmu.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="category-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<section class="section" style="background:linear-gradient(180deg,transparent,var(--lavender),transparent)">
+  <div class="container">
+    <div class="section-header">
+      <h2>Kamu Lagi Cari Seminar untuk Apa?</h2>
+      <p>Klik salah satu untuk mencari seminar yang sesuai kebutuhanmu.</p>
+    </div>
+    <div class="chips-wrap" id="chipsWrap"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const cats = [
+    {icon:'🎓', name:'Pendidikan', desc:'Seminar & workshop pendidikan'},
+    {icon:'🔬', name:'IPA & Sains', desc:'Riset & literasi sains'},
+    {icon:'💻', name:'Teknologi', desc:'AI, coding, dan digital'},
+    {icon:'🩺', name:'Kesehatan', desc:'Kesehatan & mental health'},
+    {icon:'💼', name:'Bisnis', desc:'Kewirausahaan & karier'},
+    {icon:'🤝', name:'Organisasi', desc:'Kepemimpinan & organisasi'},
+    {icon:'🎨', name:'Kreativitas', desc:'Desain, media, dan seni'},
+    {icon:'🌱', name:'Pengembangan Diri', desc:'Public speaking & soft skill'}
+  ];
+  document.getElementById('catGrid').innerHTML = cats.map(c=>`
+    <a href="seminar.html?category=${encodeURIComponent(c.name)}" class="category-card reveal">
+      <div class="cat-icon">${c.icon}</div>
+      <h3>${c.name}</h3>
+      <p>${c.desc}</p>
+    </a>
+  `).join('');
+
+  const chips = [
+    {label:'Buat Tugas Kuliah', q:'pendidikan'},
+    {label:'Butuh Sertifikat', q:'sertifikat'},
+    {label:'Tambah Wawasan', q:''},
+    {label:'Persiapan Karier', q:'karier'},
+    {label:'Public Speaking', q:'public speaking'},
+    {label:'Skill Digital', q:'teknologi'},
+    {label:'Self Development', q:'pengembangan diri'},
+    {label:'Yang Gratis Aja', q:'gratis'}
+  ];
+  document.getElementById('chipsWrap').innerHTML = chips.map(c=>`
+    <a href="seminar.html?q=${encodeURIComponent(c.q)}" class="chip">${c.label}</a>
+  `).join('');
+
+  initReveal();
+});
+</script>
+</body>
+</html>
+carikan.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carikan Seminar untuk Saya — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Mager Cari Seminar Sendiri? 😭</h1>
+    <p>Biar SEMINARA yang carikan. Kamu tinggal kasih kriterianya!</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="form-grid">
+      <div class="form-illustration">
+        <div class="emoji-big">🧑‍🎓</div>
+        <h3>Tim SEMINARA siap bantu!</h3>
+        <p>Isi form di samping, kami akan carikan seminar paling cocok untukmu.</p>
+      </div>
+
+      <div class="form-card">
+        <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:6px">Form Request Seminar 📝</h3>
+        <p style="color:var(--gray);font-size:.9rem;margin-bottom:24px">Semua data hanya digunakan untuk keperluan pencarian seminar.</p>
+
+        <form id="requestForm" novalidate>
+          <div class="form-group">
+            <label>Nama Lengkap <span class="req">*</span></label>
+            <input type="text" name="nama" placeholder="Contoh: Fina Rahmatika">
+            <div class="error-msg">Nama wajib diisi</div>
+          </div>
+
+          <div class="form-group">
+            <label>Nomor WhatsApp <span class="req">*</span></label>
+            <input type="tel" name="wa" placeholder="08xxxxxxxxxx">
+            <div class="error-msg">Nomor WhatsApp wajib diisi (min. 10 digit)</div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Jurusan <span class="req">*</span></label>
+              <input type="text" name="jurusan" placeholder="Contoh: Pendidikan IPA">
+              <div class="error-msg">Jurusan wajib diisi</div>
+            </div>
+            <div class="form-group">
+              <label>Kategori <span class="req">*</span></label>
+              <select name="kategori">
+                <option value="">Pilih Kategori</option>
+                <option>Pendidikan</option>
+                <option>IPA & Sains</option>
+                <option>Teknologi</option>
+                <option>Kesehatan</option>
+                <option>Bisnis</option>
+                <option>Organisasi</option>
+                <option>Kreativitas</option>
+                <option>Pengembangan Diri</option>
+              </select>
+              <div class="error-msg">Kategori wajib dipilih</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Topik yang Dicari <span class="req">*</span></label>
+            <textarea name="topik" placeholder="Contoh: Seminar tentang AI di pendidikan, public speaking, dll."></textarea>
+            <div class="error-msg">Topik wajib diisi</div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Budget Maksimal <span class="req">*</span></label>
+              <select name="budget">
+                <option value="">Pilih Budget</option>
+                <option>Gratis</option>
+                <option>≤ Rp10.000</option>
+                <option>≤ Rp25.000</option>
+                <option>≤ Rp50.000</option>
+                <option>Fleksibel</option>
+              </select>
+              <div class="error-msg">Budget wajib dipilih</div>
+            </div>
+            <div class="form-group">
+              <label>Tanggal Diinginkan</label>
+              <input type="date" name="tanggal">
+              <div class="error-msg"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Format <span class="req">*</span></label>
+              <select name="format">
+                <option value="">Pilih Format</option>
+                <option>Online</option>
+                <option>Offline</option>
+                <option>Bebas</option>
+              </select>
+              <div class="error-msg">Format wajib dipilih</div>
+            </div>
+            <div class="form-group">
+              <label>Butuh Sertifikat? <span class="req">*</span></label>
+              <select name="sertifikat">
+                <option value="">Pilih</option>
+                <option>Ya, butuh</option>
+                <option>Tidak wajib</option>
+              </select>
+              <div class="error-msg">Wajib dipilih</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Paket yang Dipilih <span class="req">*</span></label>
+            <select name="paket" id="paketSelect">
+              <option value="">Pilih Paket</option>
+              <option value="Free Search (Rp0)">Free Search (Rp0)</option>
+              <option value="Seminara Helper (Rp5.000)">Seminara Helper (Rp5.000)</option>
+              <option value="Seminara Plus (Rp10.000)">Seminara Plus (Rp10.000)</option>
+            </select>
+            <div class="error-msg">Paket wajib dipilih</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px">💌 Kirim Request</button>
+        </form>
+
+        <div id="successBox" style="display:none;margin-top:24px;padding:24px;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--soft-pink),var(--lavender));text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:10px">💗</div>
+          <h3 style="font-weight:700;margin-bottom:8px">Request kamu berhasil dikirim!</h3>
+          <p style="font-size:.9rem;color:var(--gray);margin-bottom:18px">Klik tombol di bawah untuk kirim detail ke WhatsApp kami.</p>
+          <a id="waSendBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener">💬 Kirim Detail ke WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const params = new URLSearchParams(location.search);
+  const paketParam = params.get('paket');
+  if(paketParam){
+    const sel = document.getElementById('paketSelect');
+    [...sel.options].forEach(o=>{
+      if(o.value.toLowerCase().includes(paketParam.toLowerCase())) sel.value = o.value;
+    });
+  }
+
+  const form = document.getElementById('requestForm');
+  const successBox = document.getElementById('successBox');
+  const waSendBtn = document.getElementById('waSendBtn');
+
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    let valid = true;
+    const data = {};
+    form.querySelectorAll('input,select,textarea').forEach(f=>{
+      const group = f.closest('.form-group');
+      group.classList.remove('error');
+      const v = f.value.trim();
+      data[f.name] = v;
+      if(f.name === 'tanggal') return;
+      if(!v){ group.classList.add('error'); valid = false; return; }
+      if(f.name === 'wa' && v.replace(/\D/g,'').length < 10){ group.classList.add('error'); valid = false; }
+    });
+    if(!valid){ showToast('Mohon lengkapi semua field bertanda *', 'error'); return; }
+
+    const msg =
+`Halo Kak Seminara! Saya ingin request pencarian seminar 💗
+
+Nama: ${data.nama}
+WhatsApp: ${data.wa}
+Jurusan: ${data.jurusan}
+Kategori: ${data.kategori}
+Topik: ${data.topik}
+Budget: ${data.budget}
+Tanggal: ${data.tanggal || '-'}
+Format: ${data.format}
+Sertifikat: ${data.sertifikat}
+Paket: ${data.paket}
+
+Mohon dibantu ya, terima kasih! 🙏`;
+
+    waSendBtn.href = 'https://wa.me/6282337237718?text=' + encodeURIComponent(msg);
+    successBox.style.display = 'block';
+    showToast('Request kamu berhasil dikirim! 💗', 'success');
+    successBox.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+});
+</script>
+</body>
+</html>
+paket.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paket Layanan — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Pilih Cara Kamu Cari Seminar 💗</h1>
+    <p>Sesuaikan dengan kebutuhan dan budgetmu.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="pricing-grid">
+
+      <div class="pricing-card reveal">
+        <h3>Free Search</h3>
+        <div class="pricing-price">Rp0</div>
+        <p class="pricing-desc">Cari sendiri, jelajahi katalog seminarnya.</p>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Lihat katalog lengkap</li>
+          <li><span class="check">✓</span> Search seminar</li>
+          <li><span class="check">✓</span> Filter seminar</li>
+          <li><span class="check">✓</span> Lihat detail</li>
+          <li><span class="check">✓</span> Simpan favorit</li>
+        </ul>
+        <a href="seminar.html" class="btn btn-secondary btn-block">Mulai Cari</a>
+      </div>
+
+      <div class="pricing-card reveal">
+        <h3>Seminara Helper</h3>
+        <div class="pricing-price">Rp5.000</div>
+        <p class="pricing-desc">Kami bantu carikan sesuai kebutuhanmu.</p>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Maksimal 3 rekomendasi</li>
+          <li><span class="check">✓</span> Berdasarkan kebutuhan</li>
+          <li><span class="check">✓</span> Berdasarkan budget</li>
+          <li><span class="check">✓</span> Berdasarkan jadwal</li>
+        </ul>
+        <a href="carikan.html?paket=Helper" class="btn btn-primary btn-block">Pilih Paket</a>
+      </div>
+
+      <div class="pricing-card featured reveal">
+        <div class="rec-badge">✨ RECOMMENDED</div>
+        <h3>Seminara Plus</h3>
+        <div class="pricing-price">Rp10.000</div>
+        <p class="pricing-desc">Pencarian prioritas + fokus sertifikat.</p>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Maksimal 5 rekomendasi</li>
+          <li><span class="check">✓</span> Berdasarkan jurusan</li>
+          <li><span class="check">✓</span> Prioritas pencarian</li>
+          <li><span class="check">✓</span> Fokus seminar bersertifikat</li>
+        </ul>
+        <a href="carikan.html?paket=Plus" class="btn btn-pink btn-block">Pilih Paket</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>document.addEventListener('DOMContentLoaded',initReveal);</script>
+</body>
+</html>
+favorit.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seminar Favorit — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Seminar Favoritmu ❤️</h1>
+    <p>Semua seminar yang kamu simpan ada di sini.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="seminar-grid" id="favGrid"></div>
+    <div class="empty-state" id="favEmpty" style="display:none">
+      <div class="emoji-big">💗</div>
+      <h3>Belum ada seminar favorit nih 💗</h3>
+      <p>Yuk jelajahi seminar dan simpan yang kamu suka!</p>
+      <a href="seminar.html" class="btn btn-primary">Cari Seminar</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const grid = document.getElementById('favGrid');
+  const empty = document.getElementById('favEmpty');
+
+  function render(){
+    const favs = getFavorites();
+    const list = SEMINARS.filter(s=>favs.includes(s.id));
+    if(list.length===0){
+      grid.innerHTML=''; empty.style.display='block';
+    } else {
+      empty.style.display='none';
+      grid.innerHTML = list.map(createSeminarCard).join('');
+      bindFavoriteButtons(grid);
+      initReveal();
+    }
+  }
+  render();
+
+  // Re-render when favorites change via delegation
+  document.addEventListener('click', e=>{
+    if(e.target.classList.contains('fav-btn')) setTimeout(render, 300);
+  });
+});
+</script>
+</body>
+</html>
+tentang.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kami — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Tentang SEMINARA 💗</h1>
+    <p>Teman mahasiswa untuk belajar di luar kelas.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p style="font-size:1.05rem;color:var(--gray);margin-bottom:18px">
+          <strong style="color:var(--dark)">SEMINARA</strong> adalah layanan yang dibuat untuk membantu mahasiswa menemukan seminar, webinar, workshop, dan kegiatan pengembangan diri tanpa harus mencari dari banyak tempat.
+        </p>
+        <p style="font-size:1.05rem;color:var(--gray)">
+          Kami percaya setiap mahasiswa berhak mendapatkan kesempatan belajar yang tepat—sesuai minat, jurusan, budget, dan tujuan mereka.
+        </p>
+
+        <div class="visi-box">
+          <h4>Visi Kami</h4>
+          <p>"Menjadi teman mahasiswa dalam menemukan kesempatan belajar di luar kelas."</p>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="emoji-big">🎓✨</div>
+        <h3>Belajar Tanpa Ribet</h3>
+        <p>Kami kurasi, kamu tinggal pilih.</p>
+      </div>
+    </div>
+
+    <div class="highlight-grid">
+      <div class="highlight-card reveal">
+        <div class="hl-icon">🎓</div>
+        <h4>Student Focused</h4>
+        <p>Dirancang khusus untuk kebutuhan mahasiswa.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="hl-icon">✨</div>
+        <h4>Easy to Use</h4>
+        <p>Antarmuka simpel, pencarian cepat.</p>
+      </div>
+      <div class="highlight-card reveal">
+        <div class="hl-icon">💬</div>
+        <h4>Friendly Service</h4>
+        <p>Tim kami siap bantu dengan ramah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>document.addEventListener('DOMContentLoaded',initReveal);</script>
+</body>
+</html>
+kontak.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Yuk, Terhubung dengan SEMINARA! 💌</h1>
+    <p>Ada pertanyaan? Kami siap bantu kamu.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="contact-grid">
+      <a href="https://wa.me/6282337237718?text=Halo%20Kak%20Seminara%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20Seminara." target="_blank" rel="noopener" class="contact-card reveal">
+        <div class="cc-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>082337237718</p>
+        <div class="cc-action">Chat Sekarang →</div>
+      </a>
+      <a href="https://www.instagram.com/fina.rhmtkaa_/" target="_blank" rel="noopener" class="contact-card reveal">
+        <div class="cc-icon">📸</div>
+        <h3>Instagram</h3>
+        <p>@fina.rhmtkaa_</p>
+        <div class="cc-action">Follow Kami →</div>
+      </a>
+      <a href="mailto:finarahmatika60@gmail.com" class="contact-card reveal">
+        <div class="cc-icon">✉️</div>
+        <h3>Email</h3>
+        <p>finarahmatika60@gmail.com</p>
+        <div class="cc-action">Kirim Email →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>document.addEventListener('DOMContentLoaded',initReveal);</script>
+</body>
+</html>
+detail.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Seminar — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="detail-wrap" id="detailWrap"></div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const params = new URLSearchParams(location.search);
+  const id = parseInt(params.get('id'));
+  const wrap = document.getElementById('detailWrap');
+  const s = SEMINARS.find(x=>x.id===id);
+
+  if(!s){
+    wrap.innerHTML = `
+      <div class="empty-state" style="grid-column:1/-1">
+        <div class="emoji-big">😕</div>
+        <h3>Seminar tidak ditemukan</h3>
+        <p>Mungkin seminar sudah dihapus atau link salah.</p>
+        <a href="seminar.html" class="btn btn-primary">← Kembali ke Seminar</a>
+      </div>`;
+    return;
+  }
+
+  const fav = isFavorite(s.id);
+
+  wrap.innerHTML = `
+    <div>
+      <a href="seminar.html" class="btn btn-secondary" style="margin-bottom:20px">← Kembali ke Seminar</a>
+      <div class="detail-poster">${s.emoji}</div>
+    </div>
+    <div class="detail-body">
+      <span class="detail-cat">${s.kategori}</span>
+      <h1>${s.judul}</h1>
+
+      <div class="detail-meta">
+        <div class="detail-meta-item"><div class="label">Tanggal</div><div class="value">📅 ${formatDate(s.tanggal)}</div></div>
+        <div class="detail-meta-item"><div class="label">Waktu</div><div class="value">⏰ ${s.waktu}</div></div>
+        <div class="detail-meta-item"><div class="label">Format</div><div class="value">📍 ${s.format}</div></div>
+        <div class="detail-meta-item"><div class="label">Lokasi</div><div class="value">🗺️ ${s.lokasi}</div></div>
+        <div class="detail-meta-item"><div class="label">Pembicara</div><div class="value">🎤 ${s.pembicara}</div></div>
+        <div class="detail-meta-item"><div class="label">Penyelenggara</div><div class="value">🏛️ ${s.penyelenggara}</div></div>
+      </div>
+
+      <div class="detail-price-box">
+        <div>
+          <div class="price-label">Harga Tiket</div>
+          <div class="price" style="${s.harga===0?'color:var(--green)':''}">${formatRupiah(s.harga)}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price-label">Sertifikat</div>
+          <div class="value" style="font-weight:700">${s.sertifikat?'📜 E-Sertifikat Tersedia':'Tidak Ada'}</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>Deskripsi</h3>
+        <p>${s.deskripsi}</p>
+      </div>
+
+      <div class="detail-section">
+        <h3>Manfaat Mengikuti Seminar</h3>
+        <ul class="benefit-list">
+          ${s.manfaat.map(m=>`<li><span class="check">✓</span> ${m}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3>Tags</h3>
+        <div class="card-tags">${s.tags.map(t=>`<span class="tag">#${t}</span>`).join('')}</div>
+      </div>
+
+      <div class="detail-actions">
+        <button class="btn btn-secondary" id="favBtn">${fav?'❤️ Tersimpan di Favorit':'🤍 Tambahkan ke Favorit'}</button>
+        <button class="btn btn-primary" id="daftarBtn">Daftar Sekarang</button>
+      </div>
+    </div>
+  `;
+
+  const favBtn = document.getElementById('favBtn');
+  favBtn.addEventListener('click',()=>{
+    const nowFav = toggleFavorite(s.id);
+    favBtn.textContent = nowFav ? '❤️ Tersimpan di Favorit' : '🤍 Tambahkan ke Favorit';
+    showToast(nowFav ? 'Ditambahkan ke favorit ❤️' : 'Dihapus dari favorit', 'success');
+  });
+
+  document.getElementById('daftarBtn').addEventListener('click',()=>{
+    showToast('Pendaftaran berhasil! Silakan lanjutkan sesuai informasi penyelenggara.', 'success');
+  });
+});
+</script>
+</body>
+</html>
+
