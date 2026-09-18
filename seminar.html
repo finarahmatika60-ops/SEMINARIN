@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cari Seminar — SEMINARA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">🎓 SEMIN<span>ARA</span></a>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="seminar.html">Cari Seminar</a></li>
+      <li><a href="kategori.html">Kategori</a></li>
+      <li><a href="carikan.html">Carikan Seminar</a></li>
+      <li><a href="paket.html">Paket</a></li>
+      <li><a href="favorit.html">❤️ Favorit</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta"><a href="seminar.html" class="btn-nav">🔎 Cari Seminar</a></div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Cari Seminar yang Kamu Butuhkan 🔎</h1>
+    <p>Filter sesuai jurusan, topik, budget, waktu, dan format yang kamu mau.</p>
+    <div class="search-wrap">
+      <span class="search-icon">🔎</span>
+      <input type="text" id="searchInput" placeholder="Cari seminar, topik, atau skill...">
+    </div>
+  </div>
+</section>
+
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Kategori</label>
+        <select id="filterKategori">
+          <option value="">Semua Kategori</option>
+          <option>Pendidikan</option>
+          <option>IPA & Sains</option>
+          <option>Teknologi</option>
+          <option>Kesehatan</option>
+          <option>Bisnis</option>
+          <option>Organisasi</option>
+          <option>Kreativitas</option>
+          <option>Pengembangan Diri</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Harga</label>
+        <select id="filterHarga">
+          <option value="">Semua</option>
+          <option value="gratis">Gratis</option>
+          <option value="10000">≤ Rp10.000</option>
+          <option value="25000">≤ Rp25.000</option>
+          <option value="50000">≤ Rp50.000</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Format</label>
+        <select id="filterFormat">
+          <option value="">Semua Format</option>
+          <option value="Online">Online</option>
+          <option value="Offline">Offline</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sertifikat</label>
+        <select id="filterSertifikat">
+          <option value="">Semua</option>
+          <option value="ada">Ada</option>
+          <option value="tidak">Tidak Ada</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Urutkan</label>
+        <select id="sortBy">
+          <option value="relevan">Relevan</option>
+          <option value="terbaru">Terbaru</option>
+          <option value="termurah">Harga Termurah</option>
+          <option value="termahal">Harga Termahal</option>
+        </select>
+      </div>
+      <button class="btn-reset" id="resetBtn">Reset Filter</button>
+    </div>
+
+    <div class="result-info">
+      <p>Menampilkan <strong id="resultCount">0</strong> seminar</p>
+    </div>
+
+    <div class="seminar-grid" id="seminarGrid"></div>
+    <div class="empty-state" id="emptyState" style="display:none">
+      <div class="emoji-big">🔍</div>
+      <h3>Seminar tidak ditemukan</h3>
+      <p>Coba ubah kata kunci atau filter pencarianmu.</p>
+      <button class="btn btn-primary" onclick="document.getElementById('resetBtn').click()">Reset Filter</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🎓 SEMIN<span>ARA</span></h3>
+        <p>Cari Seminar Tanpa Ribet ✨</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="seminar.html">Cari Seminar</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="carikan.html">Carikan Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="paket.html">Paket</a></li>
+          <li><a href="favorit.html">Favorit</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 SEMINARA. Student Service Platform.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const grid = document.getElementById('seminarGrid');
+  const countEl = document.getElementById('resultCount');
+  const emptyEl = document.getElementById('emptyState');
+  const searchInput = document.getElementById('searchInput');
+  const fKat = document.getElementById('filterKategori');
+  const fHarga = document.getElementById('filterHarga');
+  const fFormat = document.getElementById('filterFormat');
+  const fSert = document.getElementById('filterSertifikat');
+  const sortBy = document.getElementById('sortBy');
+  const resetBtn = document.getElementById('resetBtn');
+
+  // Prefill from URL
+  const params = new URLSearchParams(location.search);
+  if(params.get('category')) fKat.value = params.get('category');
+  if(params.get('q')) searchInput.value = params.get('q');
+
+  function applyFilters(){
+    let list = [...SEMINARS];
+    const q = searchInput.value.trim().toLowerCase();
+    if(q){
+      list = list.filter(s =>
+        s.judul.toLowerCase().includes(q) ||
+        s.kategori.toLowerCase().includes(q) ||
+        s.tags.some(t=>t.toLowerCase().includes(q)) ||
+        s.deskripsi.toLowerCase().includes(q)
+      );
+    }
+    if(fKat.value) list = list.filter(s=>s.kategori===fKat.value);
+    if(fHarga.value === 'gratis') list = list.filter(s=>s.harga===0);
+    else if(fHarga.value) list = list.filter(s=>s.harga<=parseInt(fHarga.value));
+    if(fFormat.value) list = list.filter(s=>s.format===fFormat.value);
+    if(fSert.value === 'ada') list = list.filter(s=>s.sertifikat);
+    else if(fSert.value === 'tidak') list = list.filter(s=>!s.sertifikat);
+
+    switch(sortBy.value){
+      case 'terbaru': list.sort((a,b)=>new Date(b.tanggal)-new Date(a.tanggal)); break;
+      case 'termurah': list.sort((a,b)=>a.harga-b.harga); break;
+      case 'termahal': list.sort((a,b)=>b.harga-a.harga); break;
+    }
+    return list;
+  }
+
+  function render(){
+    const list = applyFilters();
+    countEl.textContent = list.length;
+    if(list.length===0){
+      grid.innerHTML = '';
+      emptyEl.style.display = 'block';
+    } else {
+      emptyEl.style.display = 'none';
+      grid.innerHTML = list.map(createSeminarCard).join('');
+      bindFavoriteButtons(grid);
+      initReveal();
+    }
+  }
+
+  [searchInput, fKat, fHarga, fFormat, fSert, sortBy].forEach(el=>{
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
+  });
+
+  resetBtn.addEventListener('click',()=>{
+    searchInput.value=''; fKat.value=''; fHarga.value=''; fFormat.value=''; fSert.value=''; sortBy.value='relevan';
+    render();
+    showToast('Filter direset ✨');
+  });
+
+  render();
+});
+</script>
+</body>
+</html>
